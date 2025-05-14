@@ -1,4 +1,11 @@
-[![Laravel 12](https://img.shields.io/badge/Laravel-12-red?logo=laravel)](https://laravel.com) [![PHP 8+](https://img.shields.io/badge/PHP-8%2B-blue?logo=php)](https://www.php.net) [![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql)](https://www.mysql.com) [![License](https://img.shields.io/badge/License-MIT-green)](#licencia)
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+
+<p align="center">
+  <a href="https://laravel.com"><img src="https://img.shields.io/badge/Laravel-12-red?logo=laravel" alt="Laravel 12"></a>
+  <a href="https://www.php.net"><img src="https://img.shields.io/badge/PHP-8%2B-blue?logo=php" alt="PHP 8+"></a>
+  <a href="https://www.mysql.com"><img src="https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql" alt="MySQL"></a>
+  <a href="#licencia"><img src="https://img.shields.io/badge/License-MIT-green" alt="License"></a>
+</p>
 
 # TaskManager
 
