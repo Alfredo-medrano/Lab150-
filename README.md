@@ -26,10 +26,9 @@ TaskManager es una aplicación web desarrollada con **Laravel 12** que permite a
 1. [Características](#-características)  
 2. [Tecnologías](#-tecnologías)  
 3. [Integrantes](#-integrantes-del-equipo)  
-4. [Estructura del Proyecto](#-estructura-base)  
-5. [Estado del Proyecto](#-estado-del-proyecto)  
-6. [Próximos Pasos](#-próximos-pasos)  
-7. [Licencia](#-licencia)  
+4. [Estado del Proyecto](#-estado-del-proyecto)  
+5. [Próximos Pasos](#-próximos-pasos)  
+6. [Licencia](#-licencia)  
 
 ---
 
