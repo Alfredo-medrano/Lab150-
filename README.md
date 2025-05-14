@@ -48,7 +48,7 @@ TaskManager es una aplicación web desarrollada con **Laravel 12** que permite a
 | Componente            | Herramienta / Versión   |
 | --------------------- | ----------------------- |
 | **Backend**           | Laravel 12              |
-| **Frontend**          | Blade + Bootstrap/Tailwind CSS |
+| **Frontend**          | Blade + Tailwind  (CDN) |
 | **Lenguaje**          | PHP 8+                  |
 | **Base de Datos**     | MySQL                   |
 | **Control de versiones** | Git & GitHub        |
