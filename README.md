@@ -18,7 +18,7 @@
 TaskManager es una aplicación web desarrollada con **Laravel 12** que permite a los usuarios gestionar sus tareas de forma eficiente. Incluye autenticación y registro de usuarios (Laravel Breeze), creación y visualización de tareas, y vistas protegidas por autenticación. Además contará con categorías de prioridad, listas personalizadas y notificaciones de tareas próximas a vencer.
 
 > **⚠️ Estado actual:**  
-> Este repositorio cubre el **50%** del desarrollo (primer laboratorio). Las siguientes fases se implementarán en futuros laboratorios.
+> Este repositorio cubre el **70%** del desarrollo (primer laboratorio). Las siguientes fases se implementarán en futuros laboratorios.
 
 ---
 
