@@ -30,8 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])
          ->name('profile.destroy');
 
-    Route::resource('tasks', TaskController::class)
-         ->only(['index', 'create', 'store']);
+     Route::resource('tasks', TaskController::class)
+          ->only(['index', 'create', 'store', 'update', 'edit', 'destroy']);
+
+    Route::get('tasks/{task}', fn() => redirect()->route('tasks.index'));
 });
 
 require __DIR__.'/auth.php';

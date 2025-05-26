@@ -53,4 +53,46 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index');
     }
+
+
+
+    public function show(Task $task)
+    {
+        return view('tasks.show', compact('task'));
+    }
+
+     /**
+     * Mostrar el formulario para editar una tarea.
+     */
+    public function edit(Task $task)
+    {
+        return view('tasks.edit', compact('task'));
+    }
+
+    /**
+     * Actualizar la tarea en la base de datos.
+     */
+
+    public function update(Request $request, Task $task)
+    {
+        $data = $request->validate([
+            'completed' => 'sometimes|boolean',
+        ]);
+
+        $task->update([
+            'completed' => $request->has('completed'),
+        ]);
+
+        return redirect()->route('tasks.index');
+    }
+
+    /**
+     * Eliminar la tarea de la base de datos.
+     */
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return redirect()->route('tasks.index');
+    }
 }
