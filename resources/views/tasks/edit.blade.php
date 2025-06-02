@@ -1,4 +1,3 @@
-<!-- filepath: resources/views/tasks/edit.blade.php -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -21,6 +20,17 @@
                     <div class="mb-4">
                         <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
                         <textarea name="description" id="description" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ $task->description }}</textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="priority" class="block text-gray-700 text-sm font-bold mb-2">Prioridad:</label>
+                        <select name="priority" id="priority" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="1" {{ $task->priority == 1 ? 'selected' : '' }}>Alta</option>
+                            <option value="2" {{ $task->priority == 2 ? 'selected' : '' }}>Media</option>
+                            <option value="3" {{ $task->priority == 3 ? 'selected' : '' }}>Normal</option>
+                            <option value="4" {{ $task->priority == 4 ? 'selected' : '' }}>Baja</option>
+                            <option value="5" {{ $task->priority == 5 ? 'selected' : '' }}>Muy Baja</option>
+                        </select>
                     </div>
 
                     <div class="mb-4">

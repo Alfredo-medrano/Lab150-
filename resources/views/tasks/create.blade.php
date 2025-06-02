@@ -19,6 +19,18 @@
                     <textarea name="description" id="description"
                               class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">{{ old('description') }}</textarea>
                 </div>
+
+                <div>
+                    <label for="priority" class="block text-sm font-medium text-gray-700">Prioridad</label>
+                    <select name="priority" id="priority" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="1">Alta</option>
+                        <option value="2">Media</option>
+                        <option value="3" selected>Normal</option>
+                        <option value="4">Baja</option>
+                        <option value="5">Muy Baja</option>
+                    </select>
+                </div>
+
                 <div>
                     <button type="submit"
                             class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">

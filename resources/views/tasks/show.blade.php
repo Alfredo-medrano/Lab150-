@@ -9,6 +9,27 @@
         <div class="bg-white shadow overflow-hidden sm:rounded-lg p-6">
             <h3 class="text-2xl font-bold mb-4">{{ $task->title }}</h3>
             <p class="mb-4">{{ $task->description }}</p>
+            <p class="mb-4"><strong>Prioridad:</strong>
+                @switch($task->priority)
+                    @case(1)
+                        Alta
+                        @break
+                    @case(2)
+                        Media
+                        @break
+                    @case(3)
+                        Normal
+                        @break
+                    @case(4)
+                        Baja
+                        @break
+                    @case(5)
+                        Muy Baja
+                        @break
+                    @default
+                        Desconocida
+                @endswitch
+            </p>
             <p><strong>Completada:</strong> {{ $task->completed ? 'Sí' : 'No' }}</p>
             <a href="{{ route('tasks.index') }}"
                class="mt-6 inline-block px-4 py-2 bg-gray-600 text-white rounded">

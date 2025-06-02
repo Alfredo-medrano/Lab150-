@@ -30,11 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])
          ->name('profile.destroy');
 
-     Route::resource('tasks', TaskController::class)
-          ->only(['index', 'create', 'store', 'update', 'edit', 'destroy']);
+     Route::resource('tasks', TaskController::class); // Se eliminó el filtro `only`
 
-    Route::get('tasks/{task}', fn() => redirect()->route('tasks.index'));
+    //Route::get('tasks/{task}', fn() => redirect()->route('tasks.index')); // ELIMINADO: Esta ruta interfería con el comportamiento esperado de la ruta tasks.show
 });
 
 require __DIR__.'/auth.php';
-

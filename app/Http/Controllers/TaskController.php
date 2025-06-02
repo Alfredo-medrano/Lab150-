@@ -45,6 +45,7 @@ class TaskController extends Controller
         $data = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'nullable|string',
+            'priority' => 'required|integer|min:1|max:5', 
         ]);
 
         /** @var \App\Models\User $user */
@@ -75,13 +76,17 @@ class TaskController extends Controller
 
     public function update(Request $request, Task $task)
     {
+
         $data = $request->validate([
             'completed' => 'sometimes|boolean',
+            'priority' => 'required|integer|min:1|max:5',
         ]);
 
         $task->update([
-            'completed' => $request->has('completed'),
+            'completed' => $request->has('completed') ? true : false,
+            'priority' => $request->input('priority'),
         ]);
+
 
         return redirect()->route('tasks.index');
     }
