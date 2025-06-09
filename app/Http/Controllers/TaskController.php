@@ -18,13 +18,23 @@ class TaskController extends Controller
     }
 
     /**
-     * Mostrar listado de tareas del usuario autenticado.
+     * Mostrar listado de tareas del usuario autenticado, aplicando filtros por búsqueda y prioridad.
      */
-    public function index()
+    public function index(Request $request)
     {
         /** @var \App\Models\User $user */
         $user = Auth::user();
-        $tasks = $user->tasks()->latest()->get();
+        $query = $user->tasks();
+
+        if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filled('priority')) {
+            $query->where('priority', $request->priority);
+        }
+
+        $tasks = $query->latest()->get();
 
         return view('tasks.index', compact('tasks'));
     }
@@ -45,7 +55,7 @@ class TaskController extends Controller
         $data = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'nullable|string',
-            'priority' => 'required|integer|min:1|max:5', 
+            'priority'    => 'required|integer|min:1|max:5', 
         ]);
 
         /** @var \App\Models\User $user */
@@ -55,14 +65,15 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-
-
+    /**
+     * Mostrar los detalles de una tarea.
+     */
     public function show(Task $task)
     {
         return view('tasks.show', compact('task'));
     }
 
-     /**
+    /**
      * Mostrar el formulario para editar una tarea.
      */
     public function edit(Task $task)
@@ -73,22 +84,21 @@ class TaskController extends Controller
     /**
      * Actualizar la tarea en la base de datos.
      */
-
     public function update(Request $request, Task $task)
     {
-
         $data = $request->validate([
-            'completed' => 'sometimes|boolean',
-            'priority' => 'required|integer|min:1|max:5',
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'priority'    => 'required|integer|min:1|max:5'
         ]);
 
-        $task->update([
-            'completed' => $request->has('completed') ? true : false,
-            'priority' => $request->input('priority'),
-        ]);
+        // Si el checkbox está marcado, 'completed' será true; en caso contrario, false.
+        $data['completed'] = $request->has('completed');
 
+        $task->update($data);
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')
+                         ->with('success', 'Tarea actualizada correctamente.');
     }
 
     /**
@@ -98,6 +108,7 @@ class TaskController extends Controller
     {
         $task->delete();
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')
+                         ->with('success', 'Tarea eliminada correctamente.');
     }
 }
